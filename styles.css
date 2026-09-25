@@ -1,5 +1,6 @@
 :root {
   --brand: #8c1d40;
+  --brand-strong: #5c1229;
   --accent: #ffc627;
   --ink: #191919;
   --paper: #fff;
@@ -49,9 +50,12 @@ body {
 }
 
 .brand {
+  display: inline-block;
+  padding-block: 0.5rem;
   color: inherit;
   font-size: 1.25rem;
   font-weight: 700;
+  text-decoration: none;
 }
 .menu-button {
   display: inline-flex;
@@ -101,6 +105,18 @@ main a:focus-visible {
     outline-offset: 2px;
 }
 
+
+.brand:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
+.nav-list a:hover,
+.menu-button:hover {
+    background: var(--brand-strong);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
 
 /* TODO: hide only the enhanced, collapsed narrow list. */
 main,
