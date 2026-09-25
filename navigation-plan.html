@@ -221,7 +221,37 @@
       Escape/focus behavior in your own words. Refer to the exact variable,
       attribute, dataset value, function, and event used.
     </p>
-    <p>[Response]</p>
+
+    <p><strong>Marking the page as enhanced:</strong>
+    <code>document.documentElement.dataset.enhanded = "true"</code> adds
+    <code>data-enhanced="true"</code> to the <code>&lt;html&gt;</code> element. My CSS only 
+    hides the list when that attribute exists, so if the script never runs, the links stay visible. 
+    The script then sets <code>button.hidden = false</code> to reveal the Menu button, which ships
+    hidden so users without JS never see a button that does nothing. It also calls 
+    <code>setMenuOpen(false)</code> so the menu starts closed.</p>
+    
+    <p>
+      <strong>The state function:</strong><code>setMenuOpen(isOpen)</code> is the only place the 
+      menu states changes. It sets <code>aria-expanded</code> on the button so screen readers announce
+      open or closed, and sets <code>list.dataset.open</code> so CSS shows or hides the list. Updating
+      both in one function keeps them from ever getting out of sync.
+    </p>
+
+    <p>
+      <strong>Click to toggle:</strong><code>click</code> listener on the button reads the current
+      <code>aria-expanded</code> value and calls <code>aria-expanded</code> value and calls <code>setMenuOpen</code>
+      with the opposite. Because it's a native <code>&lt;button&gt;</code>, the browser already fires <code>click</code> 
+      for Enter and Space, so I didn't write any extra key handling. 
+    </p>
+
+    <p>
+      <strong>Escape and focus:</strong><code>keydown</code> listener on the document checks whether <code>event.key</code>
+      is <code>"Escape</code> and the menu is open. If both are true it calls <code>setMenuOpen(false)</code>, then
+      <code>button.focus()</code> moves focus back to the Menu button.Without that, a keyboard user could be left focused
+      on a link that just disappeared.
+    </p>
+
+
     <h2>6. AI disclosure</h2>
     <p><strong>Tool and purpose, or none:</strong> [Response]</p>
     <p><strong>Prompt/task:</strong> [Response]</p>
