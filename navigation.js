@@ -12,7 +12,11 @@ function setMenuOpen(isOpen) {
     list.dataset.open = String(isOpen);
 }
 
-// TODO 3: use the native button's click event to toggle the state.
+button.addEventListener("click", function () {
+    const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+    setMenuOpen(!isOpen);
+});
 
 // TODO 4: close on Escape when open, then return focus to the button.
 
