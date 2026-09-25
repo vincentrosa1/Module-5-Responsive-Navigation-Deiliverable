@@ -118,6 +118,13 @@ main a:focus-visible {
     text-underline-offset: 0.2rem;
 }
 
+.nav-list a:active,
+.menu-button:active {
+    background: var(--accent);
+    color: var(--ink);
+}
+
+
 /* TODO: hide only the enhanced, collapsed narrow list. */
 main,
 footer {
