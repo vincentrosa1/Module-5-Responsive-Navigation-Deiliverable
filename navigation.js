@@ -1,7 +1,11 @@
 const button = document.querySelector(".menu-button");
 const list = document.querySelector("#primary-nav");
 
-// TODO 1: progressively enhance the document and initialize the narrow state.
+document.documentElement.dataset.enhanced ="true";
+
+button.hidden = false;
+
+setMenuOpen(false);
 
 function setMenuOpen(isOpen) {
     button.setAttribute("aria-expanded", String(isOpen));
