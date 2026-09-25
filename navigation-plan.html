@@ -99,13 +99,23 @@
 
     </table>
     <h2>2. Breakpoint evidence</h2>
-    <p><strong>Method and widths tested:</strong> [Response]</p>
+    <p><strong>Method and widths tested:</strong> In Chrome DevTools, I started the narrow
+    layout at 320px and widend in small steps. Then I temporarily forced the wide layout on 
+    and narrowed slowly from 1280px to find where it broke. Checked widths 320, 480, 640, 768 up to 1280.</p>
     <p>
-      <strong>First content failure:</strong> [What happened and at what width?]
+      <strong>First content failure:</strong> At 888px, Get support wrapped to a second row under the other links. 
     </p>
-    <p><strong>Chosen breakpoint in relative units:</strong> [Response]</p>
+    <p><strong>Chosen breakpoint in relative units:</strong> 56em. That's the failure width dived by 16 and rounded up.
+    so the wide layout only turns on once all six links and the brand fit on one row room to spare.</p>
     <p>
-      <strong>Long-label and zoom retest:</strong> [Observed result and repair]
+      <strong>Long-label and zoom retest:</strong> Changed two of the nav labels to "Plan your Garden Visit" and
+      "Request Community Garden support". The wide layout at 1189px could no longer fit every link on one row. Request Community Garden support
+      wrapped to a second row under the other links, and the brand wrapped to two lines. Nothing was clipped or overlapped because of flex-wrap. 
+      Below 56em tested at 888px the page switched to the narrow menu and all six links stacked cleanly, including the long ones. At 200% zoom 
+      on a 1280px window the page switched to the narrow layout with the Menu button.   
+    </p>
+    <p><strong>Repair:</strong> None needed. The wrap is an acceptable fallback for unusually long lables, and the real labels fit on one row about 56em.  
+      Reverted the labels after testing.
     </p>
     <h2>3. Interaction and failure test record</h2>
     <table>
