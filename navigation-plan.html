@@ -107,6 +107,7 @@
     </p>
     <p><strong>Chosen breakpoint in relative units:</strong> 56em. That's the failure width dived by 16 and rounded up.
     so the wide layout only turns on once all six links and the brand fit on one row room to spare.</p>
+    
     <p>
       <strong>Long-label and zoom retest:</strong> Changed two of the nav labels to "Plan your Garden Visit" and
       "Request Community Garden support". The wide layout at 1189px could no longer fit every link on one row. Request Community Garden support
@@ -117,6 +118,7 @@
     <p><strong>Repair:</strong> None needed. The wrap is an acceptable fallback for unusually long lables, and the real labels fit on one row about 56em.  
       Reverted the labels after testing.
     </p>
+    
     <h2>3. Interaction and failure test record</h2>
     <table>
       <tr>
@@ -127,44 +129,80 @@
       </tr>
       <tr>
         <td>Keyboard: button, Tab, Escape, focus</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>Tab reaches the skip link first and it becomes visible. Enter and Space both
+          toggle the menu. Tab reaches every visible link. Escape closes the open menu and 
+          focus returns to Menu. Closed-menu links are skipped. Should have a visible gold 
+          outline when focused. 
+        </td>
+        <td>Tabbing through revealed the skip link first, then the brand button, then the nav 
+          links in order, then main. The skip link moved focus to main. Home showed the correct page
+          and each element that was focused had the gold focus outline.
+        </td>
+        <td>Pass</td>
       </tr>
       <tr>
         <td>Pointer/touch targets</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>Menu button should be at least 44px tall and wide. Each link needs to be about 48px tall with padding.
+          Hover should show a darker background and underline. 
+        </td>
+        <td>Menu button was 44px tall and wide. Each link was 48px tall with padding and Hover showed a darker
+          background with a visible underline.
+        </td>
+        <td>Pass</td>
       </tr>
       <tr>
         <td>320px and breakpoint region</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>At 320px there should be no horizontal scrolling, no clipped text or focus outlines, brand and button 
+          should not overlap. Around the breakpoint the layout should switch cleanly with now crowded state.
+        </td>
+        <td>At 320px there was no horizontal scrolling or clipped text. The brand and button did not overlap.
+          At the breakpoint the layout switched cleanly.
+        </td>
+        <td>Pass</td>
       </tr>
       <tr>
         <td>200% zoom</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>The Header should reflow to the narrow layout. Every link should be reachable through the menu. 
+          Text should be readable and focus will stay visible.
+        </td>
+        <td>Header reflowed to the narrow layout. Every link was reachable through the menu. Text is readable
+          and the focus stayed visible.
+        </td>
+        <td>Pass</td>
       </tr>
       <tr>
         <td>JavaScript unavailable</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>Menu button should stay hidden, and all six links will be visible at every width.</td>
+        <td>Menu button was hidden, and all links were visible regardless of width.</td>
+        <td>Pass</td>
       </tr>
       <tr>
         <td>CSS unavailable / wide recovery</td>
-        <td>[Expected]</td>
-        <td>[Observed]</td>
-        <td>[Pass/fail and repair]</td>
+        <td>Without CSS the skip link, brand, nav links, and main content should read in logical
+          order and all links should work. For Wide recovery, after opening and closing the menu at a narrow
+          width, when widening past the breakpoint it should still show every link.
+        </td>
+        <td>Without CSS, All links, brand, nav links and main content read in order. Each link worked as intended. 
+          Wide recovery, when the menu was opened and closed at a narrow width then widedn past the breakpoint. 
+          It continued to show every link. 
+        </td>
+        <td>Pass</td>
       </tr>
     </table>
     <p>
-      <strong>Screenshot filenames and what each proves:</strong> [Response]
+      <strong>Screenshot filenames and what each proves:</strong> <code>narrow-menu-open.png</code> shows the narrow layout
+      with the menu open, every link stacked and readable, and the current page marker visible. <code>wide-navigation.png</code> 
+      shows the wide layout with all six links in one row next to the brand and no Menu button. 
     </p>
+
+    <p>
+      <img src="narrow-menu-open.png" alt="Narrow layout with the menu and all six navigation links stacked. " width="375">
+    </p>
+
+    <p>
+      <img src="wide-navigation.png" alt="Wide layout with the brand on the left and all six navigation links in one row. " width="800">
+    </p>
+
     <h2>4. Peer task test</h2>
     <p><strong>Tester relationship (no name needed):</strong> [Response]</p>
     <p><strong>Two tasks attempted:</strong> [Response]</p>
