@@ -4,8 +4,12 @@
   --ink: #191919;
   --paper: #fff;
   --surface: #f1f1f1;
+  --focus-on-dark: #ffc627;
+  --focus-on-light: #8c1d40;
   --max: 70rem;
   --space: 1rem;
+  --target: 2.75rem;
+  --radius: 0.25rem;
 }
 * {
   box-sizing: border-box;
