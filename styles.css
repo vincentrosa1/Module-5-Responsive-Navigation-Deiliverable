@@ -87,7 +87,21 @@ body {
   padding: 0.75rem;
   text-decoration: none;
 }
-/* TODO: hover, focus-visible, active, and aria-current styles. */
+
+.skip-link:focus-visible,
+.brand:focus-visible,
+.menu-button:focus-visible,
+.nav-list a:focus-visible {
+    outline: 3px solid var(--focus-on-dark);
+    outline-offset: 2px;
+}
+
+main a:focus-visible {
+    outline: 3px solid var(--focus-on-light);
+    outline-offset: 2px;
+}
+
+
 /* TODO: hide only the enhanced, collapsed narrow list. */
 main,
 footer {
