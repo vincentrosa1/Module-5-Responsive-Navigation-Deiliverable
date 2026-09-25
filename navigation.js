@@ -18,6 +18,14 @@ button.addEventListener("click", function () {
     setMenuOpen(!isOpen);
 });
 
-// TODO 4: close on Escape when open, then return focus to the button.
+document.addEventListener("keydown", function (event) {
+    const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+    if (event.key === "Escape" && isOpen) {
+        setMenuOpen(false);
+        button.focus();
+    }
+});
 
 // Add a comment above every logical step explaining what it does and why it is needed.
