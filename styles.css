@@ -54,8 +54,24 @@ body {
   font-weight: 700;
 }
 .menu-button {
-  /* TODO: native button appearance, focus, and comfortable target. */
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  min-width: var(--target);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--paper);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
+
+.menu-button[hidden] {
+    display: none;
+}
+
 .nav-list {
   list-style: none;
   margin: 0.75rem 0 0;
